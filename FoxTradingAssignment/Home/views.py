@@ -6,7 +6,6 @@ import requests
 import json
 
 BASE_URL="https://a3.aliceblueonline.com/rest/AliceBlueAPIService/api"
-API_KEY="CqJ5EsNYuJ5eScqv3L5yHgQju3vr4e0QIHP4u9U5UkhXWbH08PkAr22zP40v38WBFGlCcUkTxBGHyHAhPOrxOmoh1yZiilYYQRfs1Vl4Cnx0AQ92DCEvjChfrdbiq9t7"
 
 @api_view(['POST'])
 def LoginAPI(request):
@@ -26,7 +25,7 @@ def LoginAPI(request):
     result=response1.text
     print(result)
     encKey=str(result[45:77])
-    data=userId+API_KEY+encKey
+    data=userId+Data["API_KEY"]+encKey
     userData=hashlib.sha256(data.encode('utf8')).hexdigest()
     payload2 = json.dumps({
     "userId": userId,
